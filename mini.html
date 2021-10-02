@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OneClick</title>
+    <link rel="stylesheet" href="./fa/css/fontawesome.css">
+    <style>
+        *, html, body {
+            border: 0;
+            margin: 0%;
+            padding: 0;
+            font-size: 100%;
+        }
+        html, body {
+            width: 250px;
+            /* position: absolute;
+            display: block;
+            top: 0px;
+            right: 0px; */
+            background-color: #404040;
+            border-radius: 0, 0, 50px, 50px;
+        }
+        html {
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 0px;  /* Remove scrollbar space */
+            background: transparent;  /* Optional: just make scrollbar invisible */
+        }
+        /* Optional: show position indicator in red */
+        ::-webkit-scrollbar-thumb {
+            background: #FF0000;
+        }
+        textarea:focus, input:focus {
+            outline: none;
+        }
+        header {
+            height: 80px;
+            display: block;
+            position: relative;
+        }
+        header img {
+            display: inline-block;
+            position: relative;
+            left: 20px;
+            top: 13px;
+        }
+        header div.indent {
+            display: inline-block;
+            position: relative;
+            color: #dbdbdb;
+            left: 15%;
+            top: 7px;
+        }
+        header div.indent h1 {
+            display: block;
+            position: relative;
+            font-size: 22px;
+        }
+        header div.indent p {
+            display: block;
+            position: relative;
+            color: #d3d3d3;
+            font-size: 9px;
+            left: 13px;
+        }
+        main section {
+            position: relative;
+            display: inline-block;
+        }
+        /* main form section h3 {
+            position: relative;
+            display: inline-block;
+        }
+        main form section div.mini-container {
+            position: relative;
+            display: inline-block;
+        } */
+        main section div.round {
+            border: 0.1px solid lightgray;
+            padding: 15px;
+            border-radius: 100%;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            height: 21px;
+            width: 22px;
+        }
+        main section div.round i {
+            font-size: 20px;
+            color: white;
+        }
+        main section.save div.round:hover {
+            transition: 750ms all ease-in-out;
+            background-color: rgba(255, 0, 0, 0.3);
+            border: none;
+        }
+        main section.save div.round i {
+            font-size: 23px;
+            color: white;
+            /* margin-top: 2px; */
+        }
+        main section.visit div.round:hover {
+            transition: 750ms all ease-in-out;
+            background-color: rgba(0, 255, 0, 0.3);
+            border: none;
+        }
+        main section.expend div.round:hover {
+            transition: 750ms all ease-in-out;
+            background-color: rgba(189, 189, 189, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        div.hidden form#save-form {
+            width: 80%;
+            height: 115px;
+            margin-left: 25px;
+            margin-bottom: 15px;
+            bottom: 0px;
+            display: block;
+            position: relative;
+        }
+        div.hidden form section {
+            width: 100%;
+            display: inline-block;
+            position: relative;
+        }
+        div.hidden form section .mini-container {
+            display: inline-block;
+            position: relative;
+        }
+        div.hidden form section.section-url .mini-container {
+            width: 154px;
+        }
+        div.hidden form section.section-name .mini-container {
+            width: 141px;
+        }
+        div.hidden form section .mini-container input {
+            display: inline-block;
+            position: relative;
+            background-color: transparent;
+            /* border: 1px lightgray solid; */
+            margin-top: 1px;
+            padding: 5px;
+            font-size: 12px;
+            color: white;
+            border-radius: 5px;
+        }
+        div.hidden form section:first-child .mini-container input {
+            width: 141px;
+            margin: 0;
+        }
+        div.hidden form section:nth-child(2) .mini-container input {
+            width: 134px;
+        }
+        div.hidden form section h3 {
+            display: inline-block;
+            position: relative;
+            color: white;
+            margin-top: 5px;
+        }
+        aside {
+            height: 1px;
+            background-color: white;
+        }
+        div.hidden form section.section-name {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        div.hidden form #saveBookmark-button {
+            position: relative;
+            display: block;
+            bottom: 0px;
+            background-color: #B85B13;
+            float: right;
+            padding: 5px;
+            font-size: 10px;
+            font-weight: bold;
+            color: lightgray;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 15px;
+            background-color: #262626;
+            border-top: 1px white solid; 
+        }
+        footer a {
+            padding: 5px;
+            margin-right: 5px;
+        }
+        footer a:hover {
+            background-color: #0D0D0D;
+        }
+        footer a i {
+            color: #B85B13;
+        }
+        footer a:first-child {
+            margin-left: 10px;
+        }
+        footer a:last-child {
+            float: right;
+            margin-top: -5px;
+        }
+        footer a:last-child i {
+            color: #ff5c77;
+        }
+        div.hidden form#visit-form {
+            width: 80%;
+            /* height: 250px; */
+            margin-left: 25px;
+            margin-bottom: 5px;
+            bottom: 0px;
+            display: block;
+            position: relative;
+        }
+        div.hidden form#visit-form div.header {
+            /* background-color: red; */
+            width: 100%;
+            position: relative;
+            display: block;
+        }
+        div.hidden form#visit-form div.header h3 {
+            color: white;
+            position: relative;
+            display: inline-block;
+        }
+        div.hidden form#visit-form div.header div#group1 {
+            /* background-color: brown; */
+            width: 146px;
+            position: relative;
+            display: inline-block;
+        }
+        div.hidden form#visit-form div.header div#group1 input {
+            background-color: transparent;
+            color: white;
+            font-size: 12px;
+        }
+        div.hidden form#visit-form div.body-table {
+            margin-top: 20px;
+            color: lightgray;
+        }
+        div.hidden form#visit-form div.body-table table {
+            position: relative;
+            display: block;
+            /* width: 100%; */
+        }
+        div.hidden form#visit-form div.body-table table thead {
+            display: block;
+            position: relative;
+            margin-bottom: 7px;
+        }
+        div.hidden form#visit-form div.body-table table thead th:last-child {
+            padding-left: 10px;
+        }
+        div.hidden form#visit-form div.body-table table th {
+            width: 17px;
+        }
+        div.hidden form#visit-form div.body-table table .thead-light {
+            background-color: lightgray;
+            color: black;
+            display: block;
+        }
+        div.hidden form#visit-form div.body-table table tbody {
+            width: 100%;
+            display: block;
+            position: relative;
+            max-height: 150px;
+            overflow: scroll;
+        }
+        div.hidden form#visit-form div.body-table table tbody tr {
+            display: block;
+            position: relative;
+        }
+        div.hidden form#visit-form div.body-table table tbody tr:hover {
+            background-color: #424242;
+        }
+        div.hidden form#visit-form div.body-table table tbody tr th {
+            position: relative;
+            display: inline-block;
+        }
+        div.hidden form#visit-form div.body-table table tbody tr td {
+            position: relative;
+            display: inline-block;
+            padding: 3px 0px 3px 15px;
+            width: 163px;
+        }
+        div.hidden form#visit-form div.body-table table tbody tr td span {
+            position: relative;
+            display: block;
+            float: right;
+            margin-top: 1px;
+        }
+        div.hidden form#visit-form div.body-table table tbody tr td span a {
+            text-decoration: none;
+            color: white;
+            border: 1px white solid;
+            border-radius: 15%;
+            padding: 0px 6px;
+            font-size: 10px;
+            position: relative;
+            display: block;
+            /* height: 20px; */
+        }
+        div.hidden form#visit-form div.body-table table tbody tr td span a:hover {
+            background-color: green;
+            transition: background-color ease-in-out 250ms;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./img/dragon_128.png"  width="50px" alt="Dragon Logo">
+        <div class="indent">
+            <h1>OneClick</h1>
+            <p><i>Version:     1.2</i></p>
+            <p><i>Language:    English</i></p>
+        </div>
+    </header>
+    <main>
+        <section class="save">
+            <div class="round">
+                <i class="far fa-save"></i>
+            </div>
+        </section>
+        <section class="visit">
+            <div class="round">
+                <i class="fas fa-eye"></i>
+            </div>
+        </section>
+        <section class="expend">
+            <div class="round">
+                <a href="./oneclick.html" target="_blank">
+                    <i class="fas fa-tools"></i>
+                </a>
+            </div>
+        </section>
+        <div class="hidden">
+            <div class="loader"></div>
+    </main>
+    <footer>
+        <a href="https://www.facebook.com/gary.weintraub.9" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+        <a href="https://gitlab.itcloudglobe.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-gitlab"></i></a>
+        <a href="https://il.linkedin.com/in/gary-weintraub-a91430183" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://boot.itcloudpro.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-heart"></i></a>
+    </footer>
+
+    <script src="./js/mini.js"></script>
+</body>
+</html>

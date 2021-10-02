@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>OneTab | Welcome</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS, FontAwesome CSS, then Toggle CSS,  then style.css -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./fa/css/fontawesome.css">
+    <link rel="stylesheet" href="./styles.min.css">
+
+  </head>
+  <body>
+      <div class="container-fluid">
+        <header class="mt-2">
+            <section>
+                <a href="#">
+                    <i class="fas fa-dragon"></i>
+                </a>
+            </section>
+            <main class="justify-content-center">
+                <h1 class="font-weight-bold"><span>O</span><span class="text-secondary">ne</span><span>C</span><span class="text-secondary">lick</span></h1>
+            </main>
+        </header>
+      </div>
+      <div class="container container-cards">
+        <div class="card-deck">
+            <div class="row mx-auto">
+                <div class="card card-add mr-2 my-2 col-xl-6 col-lg-6 col-12">
+                        <section class="section-top text-center justify-content-center text-white py-3" id="add-bookmark">Add Bookmark</section>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Filled out the fileds to add a bookmark :</h5>
+                        <form class="form-inline mt-lg-4 mt-xl-4" id="form-add">
+                            <div class="input-group mt-3 mx-lg-2 mx-xl-3">
+                                <div class="input-group-prepend">
+                                <div class="input-group-text">Name</div>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Ex: &quot;Google&quot;" required>
+                            </div>
+                            <div class="input-group mt-3 mx-lg-2 mx-xl-3">
+                                <div class="input-group-prepend">
+                                <div class="input-group-text">URL</div>
+                                </div>
+                                <input type="url" class="form-control" placeholder="Ex: &quot;https://google.com&quot;" required>
+                            </div>
+                            <button type="submit" class="btn px-5 btn-success mt-3 mx-auto d-block" id="add-button">Add</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card card-act my-2 col-xl-6 col-lg-6 col-12">
+                    <section class="section-top text-center align-middle text-white py-3" id="act-bookmark">Bookmark's Options</section>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Remove the bookmark<span class="text-secondary">(<span class="text-dark">s</span>)</span> of your choice :</h5>
+                        <form>
+                            <div class="row mx-auto">
+                                <div class="row mx-auto">
+                                    <div class="card border-success col-6 px-xs-n1 m-0">
+                                            <div class="card-header text-success text-center h-100">This section is meant to visit selected bookmarks</div>
+                                            <button type="submit" class="btn btn-success mx-auto my-1 p-1" id="visit-button">Visit Selection</button>
+                                    </div>
+                                    <div class="card border-danger col-6 px-xs-n1 m-0">
+                                            <div class="card-header text-danger text-center h-100">This section is meant to remove all selected bookmarks</div>
+                                            <button type="submit" class="btn btn-danger mx-auto my-1 p-1">Remove Selection</button>
+                                        </div>
+                                </div>
+                                <div class="row mx-auto">
+                                    <div class="card col-12 border-dark m-0">
+                                        <div class="card-header text-dark text-center py-lg-2">This section is meant to clear all saved bookmarks</div>
+                                        <button type="submit" class="btn btn-dark mx-auto my-1 py-1 px-2">Clear All</button>
+                                    </div>
+                                </div>
+                            </div> 
+                        </form>
+                    </div>
+                    <div class="card-footer d-none">
+                        <small class="text-muted">Last bookmark modified 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-auto">
+                <div class="card card-search my-2 col-xl-12 col-lg-12 col-12">
+                    <section class="section-top text-center justify-content-center text-white py-3" id="search-bookmark">Filter Bookmark</section>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Filter the saved bookmarks :</h5>
+                        <form class="form-inline">
+                            <div class="input-group my-2 mx-lg-5 mx-xl-5 col-12 col-md-11 col-lg-11 col-xl-11">
+                                <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-filter"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="form-search" placeholder="Bookmark's name...">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer d-none">
+                        <small class="text-muted">Last bookmark filtered 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="container container-bookmarks mt-5">
+          <div class="row px-auto mx-auto">
+                <table class="table table-hover">
+                    <thead>
+                          <tr>
+                            <th class="first-col" scope="col-2">#</th>
+                            <th class="second-col" scope="col-10">Bookmarks</th>
+                          </tr>
+                    </thead>
+                    <tbody class="bookmarks">
+                    </tbody>
+                </table>
+          </div>
+      </div>
+
+    <!-- Adding room at bottom page -->
+      <section class="empty"></section>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then Toggle JS -->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/app.min.js"></script>
+  </body>
+</html>
